@@ -530,3 +530,21 @@ body {
 .website-author {
   color: #eee;
 }
+
+.register-dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 4rem 4rem;
+  background-color: #f3f3f3;
+  border: none;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+}

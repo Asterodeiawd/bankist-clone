@@ -1,3 +1,5 @@
+const ctaButtons = document.querySelectorAll(".cta");
+
 const testimonials = document.querySelector(".testimonials");
 const slidesNode = testimonials.querySelector(".slides");
 const allSlides = [...testimonials.querySelectorAll(".slide")];
@@ -53,7 +55,7 @@ const movePrevious = () => {
 const moveNext = () => {
   if (currentSlide === slideCount - 1) {
     slidesNode.style.transition = "none";
-    slidesNode.style.transform = `translateX(0)`;
+    slidesNode.style.transform = "translateX(0)";
     slidesNode.clientHeight;
     moveToIndex(0);
   } else moveToIndex(currentSlide + 1);
@@ -65,3 +67,12 @@ btnPrev.addEventListener("click", e => {
 btnNext.addEventListener("click", e => {
   moveNext();
 });
+
+ctaButtons.forEach(btn =>
+  btn.addEventListener("click", e => {
+    const dialog = document.querySelector(".register-dialog");
+    console.log(dialog);
+    dialog.showModal();
+    console.log("ok");
+  })
+);
