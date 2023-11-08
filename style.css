@@ -365,6 +365,7 @@ body {
 .slides {
   display: flex;
   flex-basis: 100rem;
+  transition: all 0.4s;
 }
 
 .slide {
