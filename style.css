@@ -472,9 +472,11 @@ body {
   cursor: pointer;
 }
 
-.section__cta {
+.section__cta,
+.footer {
   background-color: #37383d !important;
   padding: 10rem 3rem;
+  border-bottom: 1px solid #444;
 }
 
 .cta__title {
@@ -493,4 +495,37 @@ body {
   margin: auto;
   display: block;
   cursor: pointer;
+}
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #eee;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.footer__logo {
+  height: 5rem;
+  margin: auto;
+  display: block;
+  margin-bottom: 5rem;
+}
+
+.copyright {
+  color: #aaa;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.website-author {
+  color: #eee;
 }
