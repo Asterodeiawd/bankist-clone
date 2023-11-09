@@ -247,6 +247,7 @@ body {
 .btn:focus {
   border: none;
 }
+
 .btn {
   padding: 1.05rem 4.5rem;
   border-radius: 999px;
@@ -256,6 +257,7 @@ body {
   text-transform: capitalize;
   font-family: inherit;
   display: inline-block;
+  cursor: pointer;
 }
 
 .operations__tab span {
@@ -495,7 +497,6 @@ body {
   font-size: 1.9rem;
   margin: auto;
   display: block;
-  cursor: pointer;
 }
 
 .footer__links {
