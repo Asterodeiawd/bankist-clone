@@ -233,7 +233,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 96rem;
+  max-width: 100rem;
   margin: 0 auto;
 }
 
@@ -265,25 +265,35 @@ body {
   margin-right: 0.8rem;
 }
 
-.operations__tab--active {
-  transform: translateY(-16.6%) !important;
+.operations__tab {
+  --_background-color: var(--background-color, var(--color-primary));
+  background-color: var(--_background-color);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.operations__tab:hover {
+  --_background-color: var(--background-color, var(--color-primary-darker));
 }
 
 .operations__tab--1 {
-  background-color: var(--color-secondary);
-}
-
-.operations__tab--2 {
-  background-color: var(--color-primary);
+  --background-color: var(--color-secondary);
 }
 
 .operations__tab--3 {
-  background-color: var(--color-tertiary);
+  --background-color: var(--color-tertiary);
 }
 
-/* .operations__tab { */
-/* margin-right: 2.5rem; */
-/* } */
+.operations__tab--1:hover {
+  --background-color: var(--color-secondary-darker);
+}
+
+.operations__tab--3:hover {
+  --background-color: var(--color-tertiary-darker);
+}
+
+.operations__tab--active {
+  transform: translateY(-16.6%) !important;
+}
 
 .operations__content {
   background-color: #fff;
@@ -292,7 +302,6 @@ body {
 }
 
 .operations__content--active {
-  opacity: 100;
   display: grid;
   grid-template-columns: 7rem 1fr;
   column-gap: 3.5rem;
@@ -327,32 +336,34 @@ body {
   border-radius: 100%;
 }
 
+.operations__content .operations__svg {
+  --_stroke: var(--stroke, var(--color-primary));
+  stroke: var(--_stroke);
+}
+
 .operations__content--1 .operations__svg {
-  stroke: var(--color-secondary);
-}
-
-.operations__content--1 .operations__icon::after {
-  background-color: var(--color-secondary-opacity);
-}
-
-.operations__content--2 .operations__svg {
-  stroke: var(--color-primary);
-}
-
-.operations__content--2 .operations__icon::after {
-  background-color: var(--color-primary-opacity);
+  --stroke: var(--color-secondary);
 }
 
 .operations__content--3 .operations__svg {
-  stroke: var(--color-tertiary);
+  --stroke: var(--color-tertiary);
+}
+
+.operations__content .operations__icon::after {
+  --_background-color: var(--background-color, var(--color-primary-opacity));
+  background-color: var(--_background-color);
+}
+
+.operations__content--1 .operations__icon::after {
+  --background-color: var(--color-secondary-opacity);
 }
 
 .operations__content--3 .operations__icon::after {
-  background-color: var(--color-tertiary-opacity);
+  --background-color: var(--color-tertiary-opacity);
 }
 
 .operations__header {
-  font-size: 2.3rem;
+  font-size: 2.25rem;
   font-weight: 500;
   margin-bottom: 2.2rem;
 }

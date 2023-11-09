@@ -1,4 +1,6 @@
-const ctaButtons = document.querySelectorAll(".cta");
+///////////////////////////////////////////////////////////
+//  testimonials                                         //
+///////////////////////////////////////////////////////////
 
 const testimonials = document.querySelector(".testimonials");
 const slidesNode = testimonials.querySelector(".slides");
@@ -68,6 +70,10 @@ btnNext.addEventListener("click", e => {
   moveNext();
 });
 
+///////////////////////////////////////////////////////////
+//  cta buttons                                          //
+///////////////////////////////////////////////////////////
+const ctaButtons = document.querySelectorAll(".cta");
 const dialog = document.querySelector(".register-dialog");
 const btnCloseDialog = dialog.querySelector(".close");
 
@@ -76,3 +82,25 @@ ctaButtons.forEach(btn =>
 );
 
 btnCloseDialog.addEventListener("click", _ => dialog.close());
+
+///////////////////////////////////////////////////////////
+//  operation tabs                                       //
+///////////////////////////////////////////////////////////
+const operationTabs = [...document.querySelectorAll(".operations__tab")];
+const operationContents = document.querySelectorAll(".operations__content");
+
+operationTabs.forEach(tab =>
+  tab.addEventListener("click", e => {
+    operationTabs.forEach((item, index) => {
+      if (item === e.currentTarget) {
+        item.classList.add("operations__tab--active");
+        operationContents[index].classList.add("operations__content--active");
+      } else {
+        item.classList.remove("operations__tab--active");
+        operationContents[index].classList.remove(
+          "operations__content--active"
+        );
+      }
+    });
+  })
+);
