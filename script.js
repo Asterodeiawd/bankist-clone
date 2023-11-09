@@ -68,11 +68,11 @@ btnNext.addEventListener("click", e => {
   moveNext();
 });
 
+const dialog = document.querySelector(".register-dialog");
+const btnCloseDialog = dialog.querySelector(".close");
+
 ctaButtons.forEach(btn =>
-  btn.addEventListener("click", e => {
-    const dialog = document.querySelector(".register-dialog");
-    console.log(dialog);
-    dialog.showModal();
-    console.log("ok");
-  })
+  btn.addEventListener("click", _ => dialog.showModal())
 );
+
+btnCloseDialog.addEventListener("click", _ => dialog.close());
