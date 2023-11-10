@@ -502,12 +502,20 @@ body {
   margin-bottom: 6rem;
 }
 
-.section__cta .cta {
+.cta {
   background-color: var(--color-primary);
+  transition: background-color 0.3s;
+  display: block;
+}
+
+.cta:hover {
+  background-color: var(--color-primary-darker);
+}
+
+.section__cta .cta {
   padding: 2rem 5rem;
   font-size: 1.9rem;
   margin: auto;
-  display: block;
 }
 
 .footer__links {
