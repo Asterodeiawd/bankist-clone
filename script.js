@@ -104,3 +104,14 @@ operationTabs.forEach(tab =>
     });
   })
 );
+
+const mainNavLinks = document.querySelectorAll(".nav__link");
+
+mainNavLinks.forEach(link =>
+  link.addEventListener("click", e => {
+    const targetId = e.target.textContent.toLowerCase();
+    const target = document.querySelector(`#${targetId}`);
+
+    target && target.scrollIntoView({ behavior: "smooth" });
+  })
+);
