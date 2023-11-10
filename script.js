@@ -105,13 +105,29 @@ operationTabs.forEach(tab =>
   })
 );
 
-const mainNavLinks = document.querySelectorAll(".nav__link");
+///////////////////////////////////////////////////////////
+// main nav                                              //
+///////////////////////////////////////////////////////////
+const mainNav = document.querySelector(".nav__links");
 
-mainNavLinks.forEach(link =>
-  link.addEventListener("click", e => {
-    const targetId = e.target.textContent.toLowerCase();
-    const target = document.querySelector(`#${targetId}`);
+mainNav.addEventListener("click", e => {
+  e.preventDefault();
+  const link = e.target.closest(".nav__link");
+  const targetHref = link?.getAttribute("href");
 
-    target && target.scrollIntoView({ behavior: "smooth" });
-  })
-);
+  if (!targetHref || targetHref === "#") return;
+
+  const targetElement = document.querySelector(`${targetHref}`);
+  targetElement && targetElement.scrollIntoView({ behavior: "smooth" });
+});
+
+// const mainNavLinks = document.querySelectorAll(".nav__link");
+
+// mainNavLinks.forEach(link =>
+//   link.addEventListener("click", e => {
+//     const targetId = e.target.textContent.toLowerCase();
+//     const target = document.querySelector(`#${targetId}`);
+
+//     target && target.scrollIntoView({ behavior: "smooth" });
+//   })
+// );
