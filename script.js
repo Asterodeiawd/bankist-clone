@@ -139,7 +139,7 @@ mainNav.addEventListener("click", e => {
   if (!targetHref || targetHref === "#") return;
 
   const targetElement = document.querySelector(`${targetHref}`);
-  targetElement && targetElement.scrollIntoView({ behavior: "smooth" });
+  targetElement?.scrollIntoView({ behavior: "smooth" });
 });
 
 // const mainNavLinks = document.querySelectorAll(".nav__link");
