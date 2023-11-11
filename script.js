@@ -88,22 +88,42 @@ btnCloseDialog.addEventListener("click", _ => dialog.close());
 ///////////////////////////////////////////////////////////
 const operationTabs = [...document.querySelectorAll(".operations__tab")];
 const operationContents = document.querySelectorAll(".operations__content");
-
-operationTabs.forEach(tab =>
-  tab.addEventListener("click", e => {
-    operationTabs.forEach((item, index) => {
-      if (item === e.currentTarget) {
-        item.classList.add("operations__tab--active");
-        operationContents[index].classList.add("operations__content--active");
-      } else {
-        item.classList.remove("operations__tab--active");
-        operationContents[index].classList.remove(
-          "operations__content--active"
-        );
-      }
-    });
-  })
+const operationsTabContainer = document.querySelector(
+  ".operations__tab-container"
 );
+
+operationsTabContainer.addEventListener("click", e => {
+  const tab = e.target.closest(".operations__tab");
+  const tabIndex = Number(tab?.dataset.tab);
+
+  if (!tabIndex) return;
+
+  operationTabs.forEach((item, index) => {
+    if (index + 1 === tabIndex) {
+      item.classList.add("operations__tab--active");
+      operationContents[index].classList.add("operations__content--active");
+    } else {
+      item.classList.remove("operations__tab--active");
+      operationContents[index].classList.remove("operations__content--active");
+    }
+  });
+});
+
+// operationTabs.forEach(tab =>
+//   tab.addEventListener("click", e => {
+//     operationTabs.forEach((item, index) => {
+//       if (item === e.currentTarget) {
+//         item.classList.add("operations__tab--active");
+//         operationContents[index].classList.add("operations__content--active");
+//       } else {
+//         item.classList.remove("operations__tab--active");
+//         operationContents[index].classList.remove(
+//           "operations__content--active"
+//         );
+//       }
+//     });
+//   })
+// );
 
 ///////////////////////////////////////////////////////////
 // main nav                                              //
