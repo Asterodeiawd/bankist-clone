@@ -7,7 +7,8 @@ const testimonials = document.querySelector(".testimonials");
 const slidesNode = testimonials.querySelector(".slides");
 const allSlides = [...testimonials.querySelectorAll(".slide")];
 const slideCount = slidesNode.childElementCount;
-const indicators = testimonials.querySelectorAll(".slide-indicator");
+const indicator = testimonials.querySelector(".indicators");
+const dots = testimonials.querySelectorAll(".slide-indicator");
 const btnPrev = testimonials.querySelector(".move-prev");
 const btnNext = testimonials.querySelector(".move-next");
 let currentSlide = 0;
@@ -26,16 +27,14 @@ const updateIndicators = idx => {
   testimonials
     .querySelector(".slide-indicator--current")
     .classList.remove("slide-indicator--current");
-  indicators[idx].classList.add("slide-indicator--current");
+  dots[idx].classList.add("slide-indicator--current");
 };
 
-indicators.forEach(dot =>
-  dot.addEventListener("click", e => {
-    console.log([...indicators].map(item => item === e.target));
-    idx = [...indicators].map(item => item === e.target).indexOf(true);
-    moveToIndex(idx + 1);
-  })
-);
+indicator.addEventListener("click", e => {
+  const dot = e.target.closest(".slide-indicator");
+
+  dot && moveToIndex(Number(dot.dataset.slide) - 1);
+});
 
 const initTestimonials = () => {
   slidesNode.append(allSlides[0].cloneNode(true));
@@ -63,13 +62,8 @@ const moveNext = () => {
     moveToIndex(0);
   } else moveToIndex(currentSlide + 1);
 };
-btnPrev.addEventListener("click", e => {
-  movePrevious();
-});
-
-btnNext.addEventListener("click", e => {
-  moveNext();
-});
+btnPrev.addEventListener("click", e => movePrevious());
+btnNext.addEventListener("click", e => moveNext());
 
 ///////////////////////////////////////////////////////////
 //  cta buttons                                          //
