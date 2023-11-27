@@ -48,8 +48,13 @@ body {
   width: 100%;
 }
 
+.main__nav.sticky {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+}
 .logo {
   height: 4.5rem;
+  transition: all 0.3s;
 }
 
 .nav__links {
@@ -66,6 +71,7 @@ body {
   margin-left: 4rem;
   display: block;
   color: inherit;
+  transition: all 0.3s;
 }
 
 .nav__link--btn:link,

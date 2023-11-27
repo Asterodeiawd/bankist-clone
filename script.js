@@ -136,6 +136,21 @@ mainNav.addEventListener("click", e => {
   targetElement?.scrollIntoView({ behavior: "smooth" });
 });
 
+const handleHover = function (e) {
+  const clickedLink = e.target.closest(".nav__link");
+  if (!clickedLink) return;
+
+  const img = document.querySelector(".logo");
+  const links = mainNav.querySelectorAll(".nav__link");
+  // [...document.querySelectorAll(".nav__link")].filter(
+  img.style.opacity = this;
+  links.forEach(el => {
+    if (el !== clickedLink) el.style.opacity = this;
+  });
+};
+
+mainNav.addEventListener("mouseout", handleHover.bind(1));
+mainNav.addEventListener("mouseover", handleHover.bind(0.5));
 // const mainNavLinks = document.querySelectorAll(".nav__link");
 
 // mainNavLinks.forEach(link =>
@@ -146,3 +161,36 @@ mainNav.addEventListener("click", e => {
 //     target && target.scrollIntoView({ behavior: "smooth" });
 //   })
 // );
+
+///////////////////////////////////////////////////////////
+// sticky nav                                            //
+///////////////////////////////////////////////////////////
+const heroSection = document.querySelector(".header");
+const featureSection = document.querySelector("#features");
+const { height: heroYCoord } = heroSection.getBoundingClientRect();
+const stickyHeader = document.querySelector(".main__nav");
+
+const obsCallback = (entries, obs) => {
+  // console.log(obs);
+  if (!entries[0].isIntersecting) {
+    stickyHeader.classList.add("sticky");
+  } else {
+    stickyHeader.classList.remove("sticky");
+  }
+  console.log(entries);
+};
+
+const obsOptions = {
+  root: null,
+  threshold: [0, 0.25, 0.75],
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(heroSection);
+observer.observe(featureSection);
+// document.addEventListener("scroll", e => {
+//   if (window.scrollY >= height) stickyHeader.classList.add("sticky");
+//   else {
+//     stickyHeader.classList.remove("sticky");
+//   }
+// });
